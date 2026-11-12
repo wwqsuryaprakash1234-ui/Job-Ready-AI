@@ -1,0 +1,8 @@
+Flask
+flask-cors
+scikit-learn
+pandas
+sentence-transformers
+torch
+joblib
+PyPDF2

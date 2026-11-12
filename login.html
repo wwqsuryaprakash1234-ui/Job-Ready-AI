@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobMatch AI - Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Google Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <header class="main-header">
+            <h1>JobMatch AI 🚀</h1>
+            <p>Your AI-Powered Career Co-Pilot</p>
+        </header>
+
+        <div class="auth-card">
+            <!-- Login Form -->
+            <div id="login-view" class="auth-view active">
+                <h2>Welcome Back</h2>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="action-button">Sign In</button>
+                </form>
+
+                <div class="separator">OR</div>
+                <button type="button" class="google-signin-button">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+
+                <p class="switch-view-text">
+                    Don't have an account? <a href="#" id="show-register">Sign Up</a>
+                </p>
+            </div>
+
+            <!-- Registration Form -->
+            <div id="register-view" class="auth-view hidden">
+                <h2>Create Account</h2>
+                <form id="register-form">
+                    <div class="input-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" placeholder="Create a password (min. 6 characters)" required>
+                    </div>
+                    <button type="submit" class="action-button">Sign Up</button>
+                </form>
+
+                <div class="separator">OR</div>
+                <button type="button" class="google-signin-button">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                
+                <p class="switch-view-text">
+                    Already have an account? <a href="#" id="show-login">Sign In</a>
+                </p>
+            </div>
+             <p id="error-message" class="error-message hidden"></p>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
+

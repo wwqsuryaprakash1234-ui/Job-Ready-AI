@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobMatch AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header class="main-header">
+            <div class="header-title">
+                <h1>JobMatch AI 🚀</h1>
+                <p>Your AI-Powered Career Co-Pilot</p>
+            </div>
+            <div id="user-profile" class="user-profile hidden">
+                <span id="user-email-display"></span>
+                <button id="sign-out-button">Sign Out</button>
+            </div>
+        </header>
+
+        <div class="view-switcher">
+            <button id="candidate-tab" class="tab-button active">Candidate View</button>
+            <button id="recruiter-tab" class="tab-button">Recruiter View</button>
+        </div>
+
+        <main id="candidate-view" class="view active">
+            <div class="content-grid">
+                <div class="card input-card">
+                    <div class="card-header"><h3>Your Details</h3></div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <label for="candidate-resume-file">Upload Your Resume (PDF)</label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="candidate-resume-file" accept=".pdf" class="file-input">
+                                <label for="candidate-resume-file" class="file-input-label">
+                                    <span id="candidate-file-name">Choose a file...</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="candidate-job-description">Paste Job Description</label>
+                            <textarea id="candidate-job-description" placeholder="Paste the job description here..."></textarea>
+                        </div>
+                        <button id="candidate-analyze-button" class="action-button">Analyze Match</button>
+                    </div>
+                </div>
+                <div class="card results-card">
+                    <div class="card-header"><h3>Analysis Results</h3></div>
+                    <div class="card-body" id="results-container">
+                        <div id="candidate-loader" class="loader hidden"></div>
+                        <div id="results-placeholder" class="placeholder-body"><p>Your analysis will appear here.</p></div>
+                        <div id="candidate-results-section" class="results-body hidden">
+                            <div class="result-item">
+                                <h4>Compatibility Score</h4>
+                                <div class="gauge"><div class="gauge-body"><div class="gauge-fill" id="compatibility-fill"></div><div class="gauge-cover" id="compatibility-score">0%</div></div></div>
+                            </div>
+                            <div class="result-item">
+                                <h4>Predicted Salary (INR)</h4>
+                                <p class="salary-prediction" id="salary-prediction">₹-- LPA</p>
+                            </div>
+                            <div class="result-item">
+                                <h4>Company Fit Score</h4>
+                                <div class="gauge"><div class="gauge-body"><div class="gauge-fill" id="fit-fill"></div><div class="gauge-cover" id="fit-score">0%</div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <main id="recruiter-view" class="view hidden">
+            <div class="content-grid">
+                <div class="card input-card">
+                    <div class="card-header"><h3>Bulk Resume Analysis</h3></div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <label for="recruiter-resume-files">Upload Resumes (up to 10 PDFs)</label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="recruiter-resume-files" accept=".pdf" class="file-input" multiple>
+                                <label for="recruiter-resume-files" class="file-input-label">
+                                    <span id="recruiter-file-name">Choose files...</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="recruiter-job-description">Paste One Job Description</label>
+                            <textarea id="recruiter-job-description" placeholder="Paste the job description to match against..."></textarea>
+                        </div>
+                        <button id="recruiter-analyze-button" class="action-button">Analyze & Rank Resumes</button>
+                    </div>
+                </div>
+                <div class="card results-card">
+                    <div class="card-header"><h3>Ranked Candidates</h3></div>
+                    <div class="card-body" id="recruiter-results-container">
+                        <div id="recruiter-loader" class="loader hidden"></div>
+                        <div id="recruiter-placeholder" class="placeholder-body"><p>Ranked resumes will appear here after analysis.</p></div>
+                        <div id="recruiter-results-section" class="results-body hidden">
+                            <table class="results-table">
+                                <thead><tr><th>Rank</th><th>Resume Filename</th><th>ATS Score</th></tr></thead>
+                                <tbody id="results-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
