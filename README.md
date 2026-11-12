@@ -1,5 +1,5 @@
 
-# JobMatch AI 🚀
+# Job Ready AI 🚀
 
 **Your AI-Powered Career Co-Pilot**
 
